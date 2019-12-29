@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29025.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linq query", "Linq query\Linq query.csproj", "{7E401471-32EE-4D43-9924-AE7C2D6D06EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParseCSV", "ParseCSV\ParseCSV.csproj", "{04836A39-0A9E-4739-A6BA-FF2D620AA52B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E401471-32EE-4D43-9924-AE7C2D6D06EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E401471-32EE-4D43-9924-AE7C2D6D06EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E401471-32EE-4D43-9924-AE7C2D6D06EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E401471-32EE-4D43-9924-AE7C2D6D06EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04836A39-0A9E-4739-A6BA-FF2D620AA52B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04836A39-0A9E-4739-A6BA-FF2D620AA52B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04836A39-0A9E-4739-A6BA-FF2D620AA52B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04836A39-0A9E-4739-A6BA-FF2D620AA52B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4A36352C-63C7-49CE-9472-A57DEB122772}
+	EndGlobalSection
+EndGlobal
