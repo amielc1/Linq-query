@@ -22,7 +22,7 @@ namespace Linq_query
             //2. Immediate execution. 
             //count, average, min, max, ToList etc
 
-            var query = personsList.Where(p => p.Gender == Gender.Male);
+            var query = personsList.Where(p => p.Gender == Gender.Male);//ToList();
 
             personsList.Add(new Person() { Name = "Yosef", Age = 87, Gender = Gender.Male });
 
