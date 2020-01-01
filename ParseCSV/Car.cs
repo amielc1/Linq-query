@@ -12,6 +12,7 @@ namespace ParseCSV
         public int City { get; set; }
         public int Highway { get; set; }
         public int Combined { get; set; }
+        public override string ToString() => $"Manufacturer {Manufacturer},\t Combined {Combined}, \t Name : {Name}";
 
         internal static Car ParseCsvLineToCar(string line)
         {
