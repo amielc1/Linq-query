@@ -12,33 +12,75 @@ namespace ParseCSV
             var cars = ProcessCSVFile("fuel.csv");
             var manufacturers = ProcessManufacturers("manufacturers.csv");
 
-            var carsQuery = from car in cars
-                            where car.Manufacturer == "BMW"
-                            orderby car.Combined descending, car.Name
-                            select car;
-            //carsQuery.ToList().ForEach(c => Console.WriteLine(c));
+            var query = (from car in cars
+                         where car.Manufacturer == "BMW"
+                         orderby car.Combined descending, car.Name
+                         select car);
+            //query.ToList().ForEach(c => Console.WriteLine(c));
 
-            var manuCars = (from car in cars
-                            join manufacturer in manufacturers
-                            on car.Manufacturer equals manufacturer.Name
-                            where manufacturer.Headquarters == "Germany"
-                            orderby car.Combined descending, car.Name
-                            select new
-                            {
-                                car,
-                                manufacturer.Headquarters
-                            }).Take(10);
-            //manuCars.ToList().ForEach(mc => Console.WriteLine( $"Car {mc.car} ,Headquarters {mc.Headquarters}"));
-            var carGroups = from car in manuCars
-                            group car by car.car.Manufacturer;
-            foreach (var group in carGroups)
-            {
-                Console.WriteLine($"{group.Key} Count {group.Count()}");
-                foreach (var item in group.OrderByDescending(c => c.car.Combined))
-                {
-                    Console.WriteLine($"\t {item.car.Name} , {item.car.Combined}");
-                }
-            }
+            var carManu = (from car in cars
+                           join manufacturer in manufacturers
+                           on car.Manufacturer equals manufacturer.Name
+                           where manufacturer.Headquarters == "Germany"
+                           orderby car.Combined descending, car.Name
+                           select new
+                           {
+                               car,
+                               manufacturer.Headquarters
+                           }).Take(10);
+            //carManu.ToList().ForEach(c => Console.WriteLine($"Headquarters {c.Headquarters} ,{c.car} ,"));
+
+
+            var query1 = from car in cars
+                         group car by car.Manufacturer into manufac
+                         orderby manufac.Key
+                         select new
+                         {
+                             Name = manufac.Key,
+                             Max = manufac.Max(c => c.Combined),
+                             Min = manufac.Min(c => c.Combined),
+                             Avg = manufac.Average(c => c.Combined)
+                         };
+
+            query1.ToList().ForEach(c => Console.WriteLine($"{c.Name} : Max {c.Max}, Min {c.Min}, Avg {c.Avg}"));
+
+            //foreach (var group in query1)
+            //{
+            //    Console.WriteLine(group.Key);
+            //    foreach (var car in group)
+            //    {
+            //        Console.WriteLine($"\t {car}");
+            //    }
+            //}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //foreach (var group in grpQuery)
+            //{
+            //    Console.WriteLine($"{group.Key} Count {group.Count()}");
+            //    foreach (var item in group)
+            //    {
+            //        Console.WriteLine($"\t {item.car}");
+            //    }
+            //}
+
 
 
             Console.Read();
